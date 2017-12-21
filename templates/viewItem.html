@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Header -->
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        {% include "header.html" %}
+        <div class="item_details">
+            <h2>{{item.title}}</h2>
+            <div class="divider"></div>
+
+            Description: {{item.description}}</br>
+            <div class="divider"></div>
+            {% if login_session['UserId'] == item.added_by_user_id %}
+            <a href='{{url_for('editItem', itemName=item.title)}}'>Edit</a> |
+            <a href='{{url_for('deleteItem', itemID=item.id)}}'>Delete</a> | {% endif %}
+
+            <a href='{{url_for('showItems', name=item.category.name)}}'>                    
+                <span class='cancel'><img src="/static/cancel_red.png"></span>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

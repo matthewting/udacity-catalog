@@ -1,0 +1,19 @@
+<div class="row banner main">
+    <!-- <div class="col-md-11"> -->
+    <div class="col-md-8">
+        <h1><a href='{{url_for('showCategories')}}'><img src="/static/home.png"></a> Catalog App</h1>
+    </div>
+
+    <div class="col-md-4">
+        <div class="login">
+            <div class="divider"></div>
+            <div class="divider"></div>
+
+            <!-- login / logout button -->
+            {% if 'username' not in login_session %}
+            <a href="{{url_for('showLogin')}}"><img src="/static/googleSignInBtn.png"></a> {% else %} Welcome {{login_session['username']}}!
+            <a href="{{url_for('gdisconnect')}}">Logout</a> {% endif %}
+        </div>
+    </div>
+
+</div>

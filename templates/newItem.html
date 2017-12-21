@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Header -->
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        {% include "header.html" %}
+        <div class="add_item">
+            <h2>New Item</h2>
+            <div class="col-md-6 padding-top">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" maxlength="50" class="form-control" name="title" value="">
+                        <div class="divider"></div>
+
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" maxlength="250" rows="3" name="description"></textarea>
+                        <div class="divider"></div>
+
+                        <label for="category">Category:</label></br>
+                        <select name="categoryID">
+                            <option value="1" {% if category_id == '1' %} selected="selected" {% endif %} >Soccer</option>
+                            <option value="2" {% if category_id == '2' %} selected="selected" {% endif %} >Basketball</option>
+                            <option value="3" {% if category_id == '3' %} selected="selected" {% endif %} >Baseball</option>
+                            <option value="4" {% if category_id == '4' %} selected="selected" {% endif %} >Frisbee</option>
+                            <option value="5" {% if category_id == '5' %} selected="selected" {% endif %} >Snowboarding</option>
+                            <option value="6" {% if category_id == '6' %} selected="selected" {% endif %} >Rock Climbing</option>
+                            <option value="7" {% if category_id == '7' %} selected="selected" {% endif %} >Foosball</option>
+                            <option value="8" {% if category_id == '8' %} selected="selected" {% endif %} >Skating</option>
+                            <option value="9" {% if category_id == '9' %} selected="selected" {% endif %} >Hockey</option>
+                        </select>
+                        <div class="divider"></div>
+                        </br>
+
+                        <input type='submit' value='Submit'>
+                        <span class='cancel'>
+                        <a href = '{{url_for('showCategories')}}'>
+                            <img src="/static/cancel_red.png"></span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
